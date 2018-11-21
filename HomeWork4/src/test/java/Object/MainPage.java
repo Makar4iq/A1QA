@@ -45,6 +45,8 @@ public class MainPage {
     public static WebElement NameCatalogSource;
     @FindBy(className = "ModelReviewsHome__ContentReview")
     public static List<WebElement> Rewiews;
+    @FindBy(xpath = "//*[@id=\"yt0\"]")
+    public static WebElement Exitlocator;
     @FindBys({
             @FindBy(className = "Page__BlockElementsPageCatalog"),
             @FindBy(tagName = "a")
@@ -65,6 +67,9 @@ public class MainPage {
 
     public void clickLogedMenuLocator() {
         LogedMenuLocator.click();
+    }
+    public void clickExitLocatir(){
+        Exitlocator.click();
     }
 
     public void loginNameLocator() {

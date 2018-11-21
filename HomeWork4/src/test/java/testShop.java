@@ -1,5 +1,4 @@
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,8 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.FindBy;
-import org.junit.Before;
-import org.junit.Assert;
+
 import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.containsString;
@@ -39,10 +37,13 @@ public class testShop {
         String mainpage = "https://shop.by/";
         String loginname = "Makar4ig";
     }
-
+    @AfterClass
+    public static void  TearDown(){
+        driver.quit();
+    }
     @Test
     public void TestShop(){
-        driver.get(mainpage);
+        driver.get("https://shop.by/");
         Assert.assertEquals("https://shop.by/", driver.getCurrentUrl());
         mainPage.clickLoginMenuButton();
         mainPage.sentLoginPassword();
@@ -67,8 +68,9 @@ public class testShop {
                 data.add(el.getText());
             }
         }
-        System.out.println(data);
-        
+        driver.get("https://shop.by/");
+        mainPage.clickLoginMenuButton();
+        mainPage.clickExitLocatir();
 
     }
 
